@@ -14,7 +14,8 @@ public class Application {
 
     public static void main(String[] args) {
         try {
-            XmlToDtoConverter<Category> xmlToDtoConverter = new XmlToDtoConverter<>(PATH_TO_TEST_XML, Category.class, CATEGORY);
+            XmlToDtoConverter<Category> xmlToDtoConverter = new XmlToDtoConverter<>(PATH_TO_TEST_XML,
+                    Category.class, CATEGORY);
             List<Category> categories = xmlToDtoConverter.getList();
             if (categories != null) {
                 categories.forEach(Application::printCategory);
