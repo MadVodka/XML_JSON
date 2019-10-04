@@ -3,7 +3,7 @@
 <shop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="shop_schema.xsd">
 
-    <category name="games">
+    <category name="Games">
         <subcategory name="Consoles">
             <item>
                 <company>Sony</company>
