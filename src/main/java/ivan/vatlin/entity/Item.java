@@ -1,7 +1,12 @@
 package ivan.vatlin.entity;
 
+import ivan.vatlin.adapters.LocalDateAdapter;
+
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
+@XmlType(name = "item")
 public class Item {
     private String company;
     private String model;
@@ -32,6 +37,7 @@ public class Item {
         return productionDate;
     }
 
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     public Item setProductionDate(LocalDate productionDate) {
         this.productionDate = productionDate;
         return this;
@@ -62,6 +68,18 @@ public class Item {
     public Item setQuantity(int quantity) {
         this.quantity = quantity;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "company='" + company + '\'' +
+                ", model='" + model + '\'' +
+                ", productionDate=" + productionDate +
+                ", color='" + color + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
     }
 
     @Override
