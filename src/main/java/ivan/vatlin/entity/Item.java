@@ -19,18 +19,16 @@ public class Item {
         return company;
     }
 
-    public Item setCompany(String company) {
+    public void setCompany(String company) {
         this.company = company;
-        return this;
     }
 
     public String getModel() {
         return model;
     }
 
-    public Item setModel(String model) {
+    public void setModel(String model) {
         this.model = model;
-        return this;
     }
 
     public LocalDate getProductionDate() {
@@ -38,36 +36,32 @@ public class Item {
     }
 
     @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
-    public Item setProductionDate(LocalDate productionDate) {
+    public void setProductionDate(LocalDate productionDate) {
         this.productionDate = productionDate;
-        return this;
     }
 
     public String getColor() {
         return color;
     }
 
-    public Item setColor(String color) {
+    public void setColor(String color) {
         this.color = color;
-        return this;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public Item setPrice(double price) {
+    public void setPrice(double price) {
         this.price = price;
-        return this;
     }
 
     public int getQuantity() {
         return quantity;
     }
 
-    public Item setQuantity(int quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
-        return this;
     }
 
     @Override

@@ -15,9 +15,8 @@ public class SubCategory {
     }
 
     @XmlAttribute()
-    public SubCategory setName(String name) {
+    public void setName(String name) {
         this.name = name;
-        return this;
     }
 
     public List<Item> getItems() {
@@ -25,9 +24,8 @@ public class SubCategory {
     }
 
     @XmlElement(name = "item")
-    public SubCategory setItems(List<Item> items) {
+    public void setItems(List<Item> items) {
         this.items = items;
-        return this;
     }
 
     @Override

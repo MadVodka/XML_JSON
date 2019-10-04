@@ -32,7 +32,7 @@ public class XmlToDtoConverter<T> {
 
             while (xmlStreamReader.hasNext()) {
                 int event = xmlStreamReader.next();
-                if (event == START_ELEMENT && element.equals(xmlStreamReader.getLocalName())) {
+                if (isStartElementFound(event, element)) {
                     if (list == null) {
                         list = new ArrayList<>();
                     }
