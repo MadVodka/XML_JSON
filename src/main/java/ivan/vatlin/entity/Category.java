@@ -25,9 +25,8 @@ public class Category {
     }
 
     @XmlElement(name = "subcategory")
-    public Category setSubCategories(List<SubCategory> subCategories) {
+    public void setSubCategories(List<SubCategory> subCategories) {
         this.subCategories = subCategories;
-        return this;
     }
 
     @Override
