@@ -1,4 +1,6 @@
-package ivan.vatlin.xml;
+package ivan.vatlin.converter;
+
+import ivan.vatlin.xml.XmlStreamReaderFactory;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
@@ -12,21 +14,21 @@ import java.util.List;
 import static javax.xml.stream.XMLStreamConstants.START_ELEMENT;
 
 public class XmlToDtoConverter<T> {
-    private XmlStreamReaderFactory xmlStreamReaderFactory = new XmlStreamReaderFactory();
+    private XmlStreamReaderFactory xmlStreamReaderFactory;
     private XMLStreamReader xmlStreamReader;
     private String pathToXml;
-    private Class<T> dtoType;
+    private Class<T> type;
     private String element;
 
-    public XmlToDtoConverter(String pathToXml, Class<T> dtoType, String element) {
+    public XmlToDtoConverter(String pathToXml, Class<T> type, String element) {
+        xmlStreamReaderFactory = new XmlStreamReaderFactory();
         this.pathToXml = pathToXml;
-        this.dtoType = dtoType;
+        this.type = type;
         this.element = element;
     }
 
     public List<T> getList() throws XMLStreamException, JAXBException {
         List<T> list = null;
-
         try {
             xmlStreamReader = xmlStreamReaderFactory.getXmlStreamReader(pathToXml);
 
@@ -42,7 +44,25 @@ public class XmlToDtoConverter<T> {
 
             return list;
         } finally {
-            if (xmlStreamReader!=null) {
+            if (xmlStreamReader != null) {
+                xmlStreamReader.close();
+            }
+        }
+    }
+
+    public T getElement() throws XMLStreamException, JAXBException {
+        try {
+            xmlStreamReader = xmlStreamReaderFactory.getXmlStreamReader(pathToXml);
+
+            while (xmlStreamReader.hasNext()) {
+                int event = xmlStreamReader.next();
+                if (isStartElementFound(event, element)) {
+                    return getBindDto();
+                }
+            }
+            return null;
+        } finally {
+            if (xmlStreamReader != null) {
                 xmlStreamReader.close();
             }
         }
@@ -61,7 +81,9 @@ public class XmlToDtoConverter<T> {
             }
             return null;
         } finally {
-            xmlStreamReader.close();
+            if (xmlStreamReader != null) {
+                xmlStreamReader.close();
+            }
         }
     }
 
@@ -74,9 +96,9 @@ public class XmlToDtoConverter<T> {
     }
 
     private T getBindDto() throws JAXBException {
-        JAXBContext jaxbContext = JAXBContext.newInstance(dtoType);
+        JAXBContext jaxbContext = JAXBContext.newInstance(type);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-        JAXBElement<T> jaxbElement = unmarshaller.unmarshal(xmlStreamReader, dtoType);
+        JAXBElement<T> jaxbElement = unmarshaller.unmarshal(xmlStreamReader, type);
 
         return jaxbElement.getValue();
     }

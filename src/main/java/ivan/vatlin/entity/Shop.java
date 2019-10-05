@@ -8,7 +8,7 @@ import java.util.List;
 @XmlType(name = "shop")
 @XmlRootElement
 public class Shop {
-    List<Category> categories;
+    private List<Category> categories;
 
     public List<Category> getCategories() {
         return categories;
