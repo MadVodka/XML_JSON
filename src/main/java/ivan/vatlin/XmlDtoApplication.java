@@ -1,5 +1,6 @@
 package ivan.vatlin;
 
+import ivan.vatlin.converter.XmlToDtoConverter;
 import ivan.vatlin.entity.Category;
 
 import javax.xml.bind.JAXBException;

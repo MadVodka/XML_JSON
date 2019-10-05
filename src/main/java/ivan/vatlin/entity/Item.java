@@ -2,66 +2,49 @@ package ivan.vatlin.entity;
 
 import ivan.vatlin.adapters.LocalDateAdapter;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
 @XmlType(name = "item")
 public class Item {
+    @XmlElement
     private String company;
+    @XmlElement
     private String model;
+    @XmlElement(name = "dateProduction")
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDate productionDate;
+    @XmlElement
     private String color;
+    @XmlElement
     private double price;
+    @XmlElement
     private int quantity;
 
     public String getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
     public String getModel() {
         return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
     }
 
     public LocalDate getProductionDate() {
         return productionDate;
     }
 
-    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
-    public void setProductionDate(LocalDate productionDate) {
-        this.productionDate = productionDate;
-    }
-
     public String getColor() {
         return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public int getQuantity() {
         return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
     }
 
     @Override

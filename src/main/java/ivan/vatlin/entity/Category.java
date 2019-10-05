@@ -7,26 +7,17 @@ import java.util.List;
 
 @XmlType(name = "category")
 public class Category {
+    @XmlAttribute()
     private String name;
+    @XmlElement(name = "subcategory")
     private List<SubCategory> subCategories;
 
     public String getName() {
         return name;
     }
 
-    @XmlAttribute()
-    public Category setName(String name) {
-        this.name = name;
-        return this;
-    }
-
     public List<SubCategory> getSubCategories() {
         return subCategories;
-    }
-
-    @XmlElement(name = "subcategory")
-    public void setSubCategories(List<SubCategory> subCategories) {
-        this.subCategories = subCategories;
     }
 
     @Override

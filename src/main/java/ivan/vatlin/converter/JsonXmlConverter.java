@@ -22,7 +22,7 @@ public class JsonXmlConverter {
         Gson gson = new Gson();
         T object = gson.fromJson(jsonToParse, classType);
 
-        DtoToXmlConverter<T> dtoToXmlConverter = new DtoToXmlConverter<T>(classType, object);
+        DtoToXmlConverter<T> dtoToXmlConverter = new DtoToXmlConverter<>(classType, object);
         return dtoToXmlConverter.getXmlAsString();
     }
 }

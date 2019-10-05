@@ -8,14 +8,10 @@ import java.util.List;
 @XmlType(name = "shop")
 @XmlRootElement
 public class Shop {
+    @XmlElement(name = "category")
     private List<Category> categories;
 
     public List<Category> getCategories() {
         return categories;
-    }
-
-    @XmlElement(name = "category")
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
     }
 }

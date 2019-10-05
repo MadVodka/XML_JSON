@@ -33,14 +33,14 @@
 
     <xs:element name="item">
         <xs:complexType>
-            <xs:sequence>
+            <xs:all>
                 <xs:element name="company" type="xs:string"/>
                 <xs:element name="model" type="xs:string"/>
                 <xs:element name="dateProduction" type="xs:date"/>
                 <xs:element name="color" type="xs:string"/>
                 <xs:element name="price" type="xs:decimal"/>
                 <xs:element name="quantity" type="xs:integer"/>
-            </xs:sequence>
+            </xs:all>
         </xs:complexType>
     </xs:element>
 

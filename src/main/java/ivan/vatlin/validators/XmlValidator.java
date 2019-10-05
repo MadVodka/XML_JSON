@@ -9,21 +9,18 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class XmlValidator {
-    public boolean isXmlValid(String pathXml, String pathXsd) throws XmlValidationException {
+    public boolean isXmlValid(String xmlAsString, String pathXsd) throws XmlValidationException {
         SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-        File xmlFile = new File(pathXml);
+        Reader readerXml = new StringReader(xmlAsString);
         File xsdFile = new File(pathXsd);
         Source sourceXsd = new StreamSource(xsdFile);
-        Source sourceXml = new StreamSource(xmlFile);
+        Source sourceXml = new StreamSource(readerXml);
 
         try {
-            Schema schema = null;
-            schema = schemaFactory.newSchema(sourceXsd);
-
+            Schema schema = schemaFactory.newSchema(sourceXsd);
             Validator validator = schema.newValidator();
             validator.validate(sourceXml);
             return true;

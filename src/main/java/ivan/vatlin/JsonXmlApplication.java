@@ -41,7 +41,7 @@ public class JsonXmlApplication {
 
             if (xmlResult != null) {
                 XmlValidator xmlValidator = new XmlValidator();
-                if (xmlValidator.isXmlValid(PATH_TO_TEST_XML, PATH_TO_XSD)) {
+                if (xmlValidator.isXmlValid(xmlResult, PATH_TO_XSD)) {
                     System.out.println("Полученный xml соответствует xsd: " + PATH_TO_XSD);
                 } else {
                     System.out.println("Полученный xml не соответствует xsd: " + PATH_TO_XSD);
