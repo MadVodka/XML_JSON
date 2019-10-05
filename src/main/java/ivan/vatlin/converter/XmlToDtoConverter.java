@@ -38,7 +38,7 @@ public class XmlToDtoConverter<T> {
                     if (list == null) {
                         list = new ArrayList<>();
                     }
-                    list.add(getBindDto());
+                    list.add(getBoundDto());
                 }
             }
 
@@ -57,7 +57,7 @@ public class XmlToDtoConverter<T> {
             while (xmlStreamReader.hasNext()) {
                 int event = xmlStreamReader.next();
                 if (isStartElementFound(event, element)) {
-                    return getBindDto();
+                    return getBoundDto();
                 }
             }
             return null;
@@ -76,7 +76,7 @@ public class XmlToDtoConverter<T> {
             while (xmlStreamReader.hasNext()) {
                 int event = xmlStreamReader.next();
                 if (isStartElementFound(event, element) && isAttributeFound(attribute, attributeValue)) {
-                    return getBindDto();
+                    return getBoundDto();
                 }
             }
             return null;
@@ -95,7 +95,7 @@ public class XmlToDtoConverter<T> {
         return xmlStreamReader.getAttributeValue(null, attribute).equals(attributeValue);
     }
 
-    private T getBindDto() throws JAXBException {
+    private T getBoundDto() throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(type);
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         JAXBElement<T> jaxbElement = unmarshaller.unmarshal(xmlStreamReader, type);

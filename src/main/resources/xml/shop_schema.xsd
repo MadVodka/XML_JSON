@@ -19,7 +19,6 @@
             </xs:sequence>
             <xs:attribute ref="name" use="required"/>
         </xs:complexType>
-
     </xs:element>
 
     <xs:element name="subcategory">
@@ -31,12 +30,26 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="model">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="[a-zA-Z]{2}[0-9]{3}"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <xs:simpleType name="custom_date">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[012])-([1-9][0-9]{3})"/>
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:element name="item">
         <xs:complexType>
             <xs:all>
                 <xs:element name="company" type="xs:string"/>
-                <xs:element name="model" type="xs:string"/>
-                <xs:element name="dateProduction" type="xs:date"/>
+                <xs:element ref="model"/>
+                <xs:element name="dateProduction" type="custom_date"/>
                 <xs:element name="color" type="xs:string"/>
                 <xs:element name="price" type="xs:decimal"/>
                 <xs:element name="quantity" type="xs:integer"/>

@@ -7,10 +7,9 @@ import javax.xml.transform.stream.StreamSource;
 
 public class XmlStreamReaderFactory {
     private XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
-    private StreamSource streamSource;
 
     public XMLStreamReader getXmlStreamReader(String pathToXml) throws XMLStreamException {
-        streamSource = new StreamSource(pathToXml);
+        StreamSource streamSource = new StreamSource(pathToXml);
         return xmlInputFactory.createXMLStreamReader(streamSource);
     }
 }

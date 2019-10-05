@@ -7,16 +7,16 @@
         <subcategory name="Consoles">
             <item>
                 <company>Sony</company>
-                <model>PS4</model>
-                <dateProduction>2018-02-22</dateProduction>
+                <model>PS400</model>
+                <dateProduction>22-02-2018</dateProduction>
                 <color>Black</color>
                 <price>700</price>
                 <quantity>3</quantity>
             </item>
             <item>
                 <company>Microsoft</company>
-                <model>Xbox</model>
-                <dateProduction>2017-10-18</dateProduction>
+                <model>Xb100</model>
+                <dateProduction>18-10-2017</dateProduction>
                 <color>White</color>
                 <price>899</price>
                 <quantity>10</quantity>
@@ -27,15 +27,15 @@
             <item>
                 <company>Nintendo</company>
                 <model>SW100</model>
-                <dateProduction>2019-02-07</dateProduction>
+                <dateProduction>07-02-2019</dateProduction>
                 <color>Purple-Blue</color>
                 <price>600</price>
                 <quantity>28</quantity>
             </item>
             <item>
                 <company>Sony</company>
-                <model>Vita</model>
-                <dateProduction>2014-09-09</dateProduction>
+                <model>Vt200</model>
+                <dateProduction>09-09-2014</dateProduction>
                 <color>Black</color>
                 <price>400</price>
                 <quantity>0</quantity>
@@ -47,16 +47,16 @@
         <subcategory name="iOS">
             <item>
                 <company>Apple</company>
-                <model>11</model>
-                <dateProduction>2019-09-20</dateProduction>
+                <model>ip110</model>
+                <dateProduction>20-09-2019</dateProduction>
                 <color>Orange</color>
                 <price>1100</price>
                 <quantity>34</quantity>
             </item>
             <item>
                 <company>Apple</company>
-                <model>8</model>
-                <dateProduction>2017-09-11</dateProduction>
+                <model>ip800</model>
+                <dateProduction>11-09-2017</dateProduction>
                 <color>Black</color>
                 <price>600</price>
                 <quantity>9</quantity>
@@ -65,16 +65,16 @@
         <subcategory name="Android">
             <item>
                 <company>Samsung</company>
-                <model>S11</model>
-                <dateProduction>2019-08-15</dateProduction>
+                <model>GS111</model>
+                <dateProduction>15-08-2019</dateProduction>
                 <color>Blue</color>
                 <price>1200</price>
                 <quantity>15</quantity>
             </item>
             <item>
                 <company>Huawei</company>
-                <model>Honor 10</model>
-                <dateProduction>2018-05-02</dateProduction>
+                <model>Hr109</model>
+                <dateProduction>02-05-2018</dateProduction>
                 <color>Grey</color>
                 <price>559</price>
                 <quantity>2</quantity>

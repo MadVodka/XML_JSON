@@ -7,6 +7,8 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
+import static ivan.vatlin.xml.XmlDataHolder.DATE_TIME_FORMATTER;
+
 @XmlType(name = "item")
 public class Item {
     @XmlElement
@@ -52,7 +54,7 @@ public class Item {
         return "Item{" +
                 "company='" + company + '\'' +
                 ", model='" + model + '\'' +
-                ", productionDate=" + productionDate +
+                ", productionDate=" + productionDate.format(DATE_TIME_FORMATTER) +
                 ", color='" + color + '\'' +
                 ", price=" + price +
                 ", quantity=" + quantity +
