@@ -27,6 +27,7 @@ public class XmlDtoApplication {
             String attributeValue = "Games";
             Category category = xmlToDtoConverter.getElementWithAttribute(attribute, attributeValue);
             if (category != null) {
+                System.out.println("Поиск по атрибуту " + attribute + " и значению " + attributeValue + ":\n");
                 printCategory(category);
             } else {
                 System.out.println("Элемент " + category + " с атрибутом "
